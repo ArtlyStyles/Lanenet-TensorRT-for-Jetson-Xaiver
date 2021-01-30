@@ -1,6 +1,7 @@
 # Lanenet-TensorRT-for-Jetson-Xaiver
 
-I trained the Lanenet (https://github.com/MaybeShewill-CV/lanenet-lane-detection) on desktop and was able to run the trained mode with TensorRT on Nvidia Jetson AGX Xavier. The lanenet part is about 90ms for a 640x360 image on Xavier. 
+I trained the Lanenet (https://github.com/MaybeShewill-CV/lanenet-lane-detection) on desktop and was able to run the trained mode with TensorRT on Nvidia Jetson AGX Xavier. The lanenet part is about 90ms for a 640x360 image on Xavier. I was able to use lanenet on Xavier to drive a robocar autonomously along sidewalks without using any other algorithms https://twitter.com/SmallpixelCar/status/1297556145993707521. Here are some tips how to make it work and faster. 
+
 
 How to convert and run the mode with TensorRT:
 
@@ -14,7 +15,12 @@ Postprocessing is very slow:
 
 The DBscan based post processing is slow. It could be much faster if you write you own c++ code. You can find DBScan, curveFitting etc on github. The key is that when you use DBscan, do not put all pixels into it. You can select just some pixels, for example, skip every other pixel in the row, and skip every other row. Then you DBscan will be much faster. I was able to run the entire post-processing under a few ms. 
 
-I was able to use lanenet on Xavier to drive a robocar autonomously along sidewalks without using any other algorithms https://twitter.com/SmallpixelCar/status/1297556145993707521
+Load the UFF mode is very slow:
+
+Eever time the c++ code loads the UFF model, it will run optimization to find the best model, data type etc. So it takes a long time. On my Xavier, it took about 15s just to load the UFF. However, after the c++ optimizes the model, it will convert the UFF model into a binary "Engine". You can same this Engine with simple c++ fopen/fwrite. Next time when you starts the program, just load this saved binary Engine and feed it to TensorRT. It is then must faster. 
+
+
+
 
 
 
