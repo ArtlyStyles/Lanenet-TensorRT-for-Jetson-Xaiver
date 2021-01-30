@@ -10,5 +10,9 @@ How to convert and run the mode with TensorRT:
   
 However, when I worked on 2 above, I found I could not get the binary seg mask (which is the output of argmax and int64) to work properly in TensorRT. Maybe it was not supported by TensorRT. So I went back to 1, and selected the layer before the argmax, which is "Softmax", as output node for UFF. Then 2 worked fine. After that, I wrote my own image processing function same as argmax to process the output from TensorRT and get the final seg mask. 
 
+Postprocessing is very slow: 
+
+The DBscan based 
+
 
 
