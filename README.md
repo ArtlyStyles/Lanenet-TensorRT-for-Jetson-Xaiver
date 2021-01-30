@@ -12,7 +12,11 @@ However, when I worked on 2 above, I found I could not get the binary seg mask (
 
 Postprocessing is very slow: 
 
-The DBscan based 
+The DBscan based post processing is slow. It could be much faster if you write you own c++ code. You can find DBScan, curveFitting etc on github. The key is that when you use DBscan, do not put all pixels into it. You can select just some pixels, for example, skip every other pixel in the row, and skip every other row. Then you DBscan will be much faster. I was able to run the entire post-processing under a few ms. 
+
+I was able to use lanenet on Xavier to drive a robocar autonomously along sidewalks without using any other algorithms. https://twitter.com/SmallpixelCar/status/1297556145993707521
+
+
 
 
 
