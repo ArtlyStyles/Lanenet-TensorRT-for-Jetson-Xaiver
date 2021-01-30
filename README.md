@@ -1,6 +1,6 @@
 # Lanenet-TensorRT-for-Jetson-Xaiver
 
-I trained the Lanenet (https://github.com/MaybeShewill-CV/lanenet-lane-detection) on desktop and was able to run the trained mode with TensorRT on Nvidia Jetson AGX Xavier. The lanenet part is about 90ms for a 640x360 image on Xavier. I was able to use lanenet on Xavier to drive a robocar autonomously along sidewalks without using any other algorithms https://twitter.com/SmallpixelCar/status/1297556145993707521. You can also find other information related how I use lanenet on a real car on the same Twitter feed. 
+I trained the Lanenet (https://github.com/MaybeShewill-CV/lanenet-lane-detection) on desktop and was able to run the trained mode with TensorRT on Nvidia Jetson AGX Xavier. The lanenet part is about 90ms for a 640x360 image on Xavier. I was able to use lanenet on Xavier to drive a robocar autonomously along sidewalks without using any other algorithms https://twitter.com/SmallpixelCar/status/1297556145993707521. You can also find other information related how I used lanenet on a real car on the same Twitter feed https://twitter.com/SmallpixelCar/status/1283135727534870528. 
 
 Here are some tips how to make it work and faster. 
 
