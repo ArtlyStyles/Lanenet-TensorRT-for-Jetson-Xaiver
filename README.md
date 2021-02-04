@@ -18,7 +18,7 @@ The DBscan based post processing is slow. It could be much faster if you write y
 
 Load the UFF mode is very slow:
 
-Eever time the c++ code loads the UFF model, it will run optimization to find the best model, data type etc. So it takes a long time. On my Xavier, it took about 15s just to load the UFF. However, after the c++ optimizes the model, it will convert the UFF model into a binary "Engine". You can same this Engine with simple c++ fopen/fwrite. Next time when you starts the program, just load this saved binary Engine and feed it to TensorRT. It is then must faster. 
+Eever time the c++ code loads the UFF model, it will run optimization to find the best model, data type etc. So it takes a long time. On my Xavier, it took about 5 minuts just to load the UFF. However, after the c++ optimizes the model, it will convert the UFF model into a binary "Engine". You can same this Engine with simple c++ fopen/fwrite. Next time when you starts the program, just load this saved binary Engine and feed it to TensorRT. It is then must faster. 
 
 
 
